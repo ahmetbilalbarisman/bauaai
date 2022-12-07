@@ -1,0 +1,12 @@
+<RasterSymbolizer>
+    <ColorMap type="intervals" extended="false" >
+        <ColorMapEntry color="#ffffff" quantity="-500" label="-500"/>
+        <ColorMapEntry color="#7a8737" quantity="-250" label="-250" />
+        <ColorMapEntry color="#acbe4d" quantity="-100" label="-100" />
+        <ColorMapEntry color="#0ae042" quantity="100" label="100" />
+        <ColorMapEntry color="#fff70b" quantity="270" label="270" />
+        <ColorMapEntry color="#ffaf38" quantity="440" label="440" />
+        <ColorMapEntry color="#ff641b" quantity="660" label="660" />
+        <ColorMapEntry color="#a41fd6" quantity="2000" label="2000" />
+    </ColorMap>
+</RasterSymbolizer>
