@@ -39,7 +39,7 @@ def app():
         plugin_Draw=True,
         Draw_export=True,
         locate_control=True,
-        plugin_LatLngPopup=False,
+        #plugin_LatLngPopup=False,
     )
 
     # pre fire ve post fire tarihlerinin hesabı.
@@ -229,7 +229,7 @@ def app():
 
 
             # Mapin sağ üstüne layercontrol panelini ekler
-            folium.map.LayerControl("topright", collapsed=True).add_to(main_map)
+            #folium.map.LayerControl("topright", collapsed=True).add_to(main_map)
 
             # Legend ekler
             main_map.add_legend(
