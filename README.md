@@ -9,7 +9,7 @@ You can access the project via [![Open in Streamlit](https://static.streamlit.io
 
 1. Clone the repository
 ```bash
-git clone https://github.com/bauaai/streamlit-app.git
+git clone https://github.com/ahmetbilalbarisman/bauaai.git
 cd streamlit-app
 ```
 
