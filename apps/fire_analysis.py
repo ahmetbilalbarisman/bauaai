@@ -92,8 +92,8 @@ def app():
 
             option = st.selectbox('Yapılacak İşlemi Seçiniz',('NDVI','NBR','Uydu Görüntüsü','False Color'))
             #sistem mainde hata verdiği için geçici olarak devre dışı bırakıldı.
-            indirme = False
-            #indirme = st.selectbox('Görüntüleri İndirmek İster Misiniz ?',('Hayır','Evet'))
+            #indirme = False
+            indirme = st.selectbox('Görüntüleri İndirmek İster Misiniz ?',('Hayır','Evet'))
             dates = {
                 "prefire_start": str(pre_fire - DAY_WINDOW),
                 "prefire_end": str(pre_fire),
