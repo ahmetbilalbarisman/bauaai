@@ -155,15 +155,6 @@ def app():
                 1000
             )
 
-            # Mapin sağ üstüne layercontrol panelini ekler
-            folium.map.LayerControl("topright", collapsed=True).add_to(main_map)
-
-            # Legend ekler
-            main_map.add_legend(
-                title="dNBR Sınıfı",
-                legend_dict=utils.delta_nbr_colors,
-            )
-
 
             with open("assets/sld_intervals.xml", "r", encoding="utf-8") as file:
                 sld_intervals = file.read()
@@ -237,6 +228,16 @@ def app():
                     geemap.ee_export_image(
                         prettyImg2,filename=filename2,scale=10,region=st.session_state['roi'],file_per_band=True)
                     st.write('Görüntüler indirildi.(İndirilenler klasörüne bakınız),(Eğer roi fazla büyükse görüntüler inmez)')
+
+            # Mapin sağ üstüne layercontrol panelini ekler
+            folium.map.LayerControl("topright", collapsed=True).add_to(main_map)
+
+            # Legend ekler
+            main_map.add_legend(
+                title="dNBR Sınıfı",
+                legend_dict=utils.delta_nbr_colors,
+            )
+
 
 
 
