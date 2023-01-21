@@ -45,13 +45,12 @@ def app():
     with col1:
         st.write(
             """[Osman Faruk BAYRAM](https://github.com/osbm)  \n[Efe Can KIRBIYIK](https://github.com/EFCK)  \nAhmet Bilal BARIŞMAN  \n Aleyna
-        KURT  \n[Beyza BAYRAK](https://github.com/beyzabayrakk)
+        KURT  \n[Beyza BAYRAK](https://github.com/beyzabayrakk \n[Aleyna Benan Aydı])
         """
         )
 
     with col2:
         st.write(
             """
-        Alp Giray SAVRUM  \n  Edip Emre BODUR  \n Aleyna Benan AYDI  \n  Kubilay Kaan DELİKTAŞ  \n  Ecem AYDOĞAN
         """
         )
