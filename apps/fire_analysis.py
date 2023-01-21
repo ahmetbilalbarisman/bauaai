@@ -155,6 +155,16 @@ def app():
                 1000
             )
 
+            # Mapin sağ üstüne layercontrol panelini ekler
+            folium.map.LayerControl("topright", collapsed=True).add_to(main_map)
+
+            # Legend ekler
+            main_map.add_legend(
+                title="dNBR Sınıfı",
+                legend_dict=utils.delta_nbr_colors,
+            )
+
+
             with open("assets/sld_intervals.xml", "r", encoding="utf-8") as file:
                 sld_intervals = file.read()
 
