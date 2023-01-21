@@ -1,4 +1,4 @@
-geemap==0.16.2
+geemap==0.19.5
 streamlit==1.11.1
 streamlit-option-menu==0.3.2
 leafmap==0.10.3
