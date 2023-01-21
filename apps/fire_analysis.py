@@ -156,7 +156,7 @@ def app():
             )
 
             # Mapin sağ üstüne layercontrol panelini ekler
-            folium.map.LayerControl("topright", collapsed=True).add_to(main_map)
+            #folium.map.LayerControl("topright", collapsed=True).add_to(main_map)
 
             # Legend ekler
             main_map.add_legend(
