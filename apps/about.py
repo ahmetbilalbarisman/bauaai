@@ -44,7 +44,7 @@ def app():
 
     with col1:
         st.write(
-            """[Osman Faruk BAYRAM](https://github.com/osbm)  \n[Efe Can KIRBIYIK](https://github.com/EFCK)  \nAhmet Bilal BARIŞMAN  \n Aleyna
+            """[Osman Faruk BAYRAM](https://github.com/osbm)  \n[Efe Can KIRBIYIK](https://github.com/EFCK)  \n[Ahmet Bilal BARIŞMAN](https://github.com/ahmetbilalbarisman)  \n Aleyna
         KURT  \n[Beyza BAYRAK](https://github.com/beyzabayrakk \n[Aleyna Benan Aydı])
         """
         )
