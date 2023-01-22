@@ -154,8 +154,6 @@ def app():
             delta_nbr = pre_nbr.subtract(post_nbr).multiply(
                 1000
             )
-
-
             with open("assets/sld_intervals.xml", "r", encoding="utf-8") as file:
                 sld_intervals = file.read()
 
@@ -229,6 +227,7 @@ def app():
                         prettyImg2,filename=filename2,scale=10,region=st.session_state['roi'],file_per_band=True)
                     st.write('Görüntüler indirildi.(İndirilenler klasörüne bakınız),(Eğer roi fazla büyükse görüntüler inmez)')
 
+
             # Mapin sağ üstüne layercontrol panelini ekler
             folium.map.LayerControl("topright", collapsed=True).add_to(main_map)
 
@@ -237,8 +236,6 @@ def app():
                 title="dNBR Sınıfı",
                 legend_dict=utils.delta_nbr_colors,
             )
-
-
 
 
             # Hektar hesabının yapıldığı alan
