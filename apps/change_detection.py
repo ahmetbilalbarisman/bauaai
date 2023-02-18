@@ -33,7 +33,7 @@ rgb_vis_params = satellite_params.satellite["sentinel-2"]["rgb_vis_params"]
 false_color_vis_params = satellite_params.satellite["sentinel-2"]["false_color_vis_params"]
 change_vis_params = {min: 0, max: 1, 'palette': ['black', 'white']}
 
-@st.cache
+@st.cache_data
 def uploaded_file_to_gdf(data):
     import os
     import tempfile
@@ -55,7 +55,6 @@ def uploaded_file_to_gdf(data):
     return gdf
 
 # Function to mask clouds from the pixel quality band of Sentinel-2 SR data.
-@st.cache
 def maskS2clouds(image):
     qa = image.select('QA60')
 
@@ -339,14 +338,12 @@ def get_pixel_count(image, defined_roi, band_name):
     return total_pix_num
 
 # Function to calculate and add an NDVI band
-@st.cache
 def add_ndvi(image):
     """NDVI value range −1 to +1
     """
     ndvi = image.normalizedDifference(['B8', 'B4']).rename('index')
     return image.addBands([ndvi])
 
-@st.cache
 def add_evi(image):
     """Enhanced Vegetation Index EVI value range = 0-1
     """
@@ -360,7 +357,6 @@ def add_evi(image):
 
     return image.addBands(evi)
 
-@st.cache
 def add_mbi(image):
     """Modified Bare Soil Index
     The MBI value ranges from −0.5 to +1.5
@@ -418,6 +414,20 @@ def app():
                 index=0,
             )
 
+            if selected_roi != "Yüklenilen dosyayı seç":  # rois coming from fire_cases
+                st.session_state["roi"] = rois.gold_mines[selected_roi]["region"]
+                start_date = date.fromisoformat(
+                    rois.gold_mines[selected_roi]["date_range"][0]
+                )
+                end_date = date.fromisoformat(
+                    rois.gold_mines[selected_roi]["date_range"][1]
+                )
+                # st.session_state["gdf_roi"] = gpd.GeoDataFrame(index=[0], crs=CRS, geometry=[rois.gold_mines[selected_roi]])
+
+            elif df_hist:  # if rois coming from users
+                st.session_state["roi"] = utils.uploaded_file_to_gdf(df_hist)
+                # st.session_state["gdf_roi"] = uploaded_file_to_gdf(data)
+
             start_date = st.date_input(  # to update dates according to the user selection
                 "Başlangıç tarihi",
                 start_date,
@@ -436,20 +446,6 @@ def app():
             cloud_probability = st.selectbox('Bulutluluk Oranı Seçiniz',
                 ['10', '20', '30', '40', '50'],
                 index=1,)
-
-            if selected_roi != "Yüklenilen dosyayı seç":  # rois coming from fire_cases
-                st.session_state["roi"] = rois.gold_mines[selected_roi]["region"]
-                start_date = date.fromisoformat(
-                    rois.gold_mines[selected_roi]["date_range"][0]
-                )
-                end_date = date.fromisoformat(
-                    rois.gold_mines[selected_roi]["date_range"][1]
-                )
-                # st.session_state["gdf_roi"] = gpd.GeoDataFrame(index=[0], crs=CRS, geometry=[rois.gold_mines[selected_roi]])
-
-            elif df_hist:  # if rois coming from users
-                st.session_state["roi"] = utils.uploaded_file_to_gdf(df_hist)
-                # st.session_state["gdf_roi"] = uploaded_file_to_gdf(data)
 
             submitted = st.form_submit_button("Analiz Et")
 
