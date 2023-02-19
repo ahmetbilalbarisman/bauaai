@@ -33,7 +33,7 @@ rgb_vis_params = satellite_params.satellite["sentinel-2"]["rgb_vis_params"]
 false_color_vis_params = satellite_params.satellite["sentinel-2"]["false_color_vis_params"]
 change_vis_params = {min: 0, max: 1, 'palette': ['black', 'white']}
 
-@st.cache_data
+@st.cache
 def uploaded_file_to_gdf(data):
     import os
     import tempfile
@@ -463,6 +463,10 @@ def app():
 
         if submit_clear:
             # st.session_state["state"] = "state_0"
+            # user_session_keys = ["state", "s2_img_col", "df_area", "total_pix_num", "s2_len", \
+            #                      "s2_clear_time_list", "hist_dict", "img_dict", "max_hist_y_value", \
+            #                     "max_diff_y_value", "min_diff_y_value", "date_slider", "date_seq_slider"]
+            # for key in user_session_keys:
             for key in st.session_state.keys():
                 del st.session_state[key]
 

@@ -1,5 +1,5 @@
 geemap==0.20.0
-streamlit==1.18.1
+streamlit==1.12.2
 streamlit-option-menu==0.3.2
 leafmap==0.10.3
 geopandas==0.11.1
