@@ -554,6 +554,7 @@ def app():
                 s2_clear_time_list = st.session_state["s2_clear_time_list"]
                 hist_dict = st.session_state["hist_dict"]
                 img_dict = st.session_state["img_dict"]
+                img_url = st.session_state["img_url"]
                 max_hist_y_value = st.session_state["max_hist_y_value"]
                 max_diff_y_value = st.session_state["max_diff_y_value"]
                 min_diff_y_value = st.session_state["min_diff_y_value"]
@@ -585,6 +586,7 @@ def app():
                 min_diff_y_value = 0
                 hist_dict = {}
                 img_dict = {}
+                img_url = {}
                 bin_x_values = []
 
                 # calculate total pixels first
@@ -623,6 +625,14 @@ def app():
                         index_np = Image.open(response.raw)
                         if index_np is not None:
                             img_dict[img_date] = index_np
+
+                            url = s2_index_img.clip(defined_roi).getDownloadUrl({
+                                'bands': ['index'],
+                                # 'region': defined_roi,
+                                'scale': 10,
+                                'format': 'GEO_TIFF'
+                            })
+                            img_url[img_date] = url
 
                             s2_clear_time_list.append(img_date)
                             s2_clear_time_list_idx.append(i)
@@ -695,6 +705,7 @@ def app():
                     st.session_state["s2_len"] = s2_len
                     st.session_state["hist_dict"] = hist_dict
                     st.session_state["img_dict"] = img_dict
+                    st.session_state["img_url"] = img_url
                     st.session_state["max_hist_y_value"] = max_hist_y_value
                     st.session_state["max_diff_y_value"] = max_diff_y_value
                     st.session_state["min_diff_y_value"] = min_diff_y_value
@@ -846,6 +857,9 @@ def app():
 
                     st.pyplot(fig)
                     # fig.tight_layout()
+                    if pre_time in img_dict:
+                        # st.write("geotiff ([indir](", img_url[pre_time], "))")
+                        st.markdown("[:arrow_down_small:](%s)" % img_url[pre_time])
 
                 st.write("Yöntem: ", method)
                 st.write("İndeks Eşik Değeri: ", thr_index)
