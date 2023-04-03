@@ -11,7 +11,7 @@ geedim==1.4.0
 black
 pylint
 pytest
-pandas==1.4.3
+pandas==2.0.0
 seaborn==0.12.0
 matplotlib==3.5.3
 numpy==1.21.5
