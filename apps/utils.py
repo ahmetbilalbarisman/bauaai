@@ -222,7 +222,8 @@ def calculate_dnbr_dataframe(number_of_pixels):
     dataframe = pd.DataFrame(
         {"dNBR sınıfları": names, "hektar": hectares, "yüzde": percenteges}
     )
-    dataframe = dataframe.style.hide_index().format(precision=2)
+    dataframe = dataframe.style.format(precision=2)
+    dataframe = dataframe.hide_index()
 
     return dataframe.to_html()
 
