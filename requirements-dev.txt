@@ -5,7 +5,7 @@ leafmap==0.10.3
 geopandas==0.11.1
 earthengine-api==0.1.318
 click==8.1.3
-lxml==4.9.1
+lxml==4.9.3
 plotly==5.9.0
 geedim==1.4.0
 black
