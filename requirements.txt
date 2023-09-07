@@ -3,7 +3,7 @@ streamlit==1.12.2
 streamlit-option-menu==0.3.2
 leafmap==0.10.3
 geopandas==0.11.1
-earthengine-api==0.1.318
+earthengine-api==0.1.368
 click==8.1.3
 lxml==4.9.1
 plotly==5.9.0
