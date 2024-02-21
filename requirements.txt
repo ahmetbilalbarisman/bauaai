@@ -1,7 +1,7 @@
 geemap==0.20.0
 streamlit==1.12.2
 streamlit-option-menu==0.3.2
-leafmap==0.10.3
+leafmap==0.31.3
 geopandas==0.11.1
 earthengine-api==0.1.318
 click==8.1.3
